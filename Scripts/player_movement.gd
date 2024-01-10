@@ -11,8 +11,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var rayCastAngle:float;
 @export var rayLength:int;
 var rayCasts:Array = [];
-func _physics_process(delta):
 
+func _physics_process(delta):
+	
 	# Get rotation
 	# First check if we are using the mouse or the keyboard for rotation	
 	if Input.is_action_just_pressed("enable_mouse"):
@@ -29,6 +30,12 @@ func _physics_process(delta):
 	velocity = input_direction * SPEED
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("enemy"):
+			print("I hit an enemy!")
+			queue_free()
 
 func rayCasting():
 	rayCasts.clear();

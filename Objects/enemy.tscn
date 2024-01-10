@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bleh2bl2dg5og"]
+
+[ext_resource type="Texture2D" uid="uid://d2cdag2gm0vtt" path="res://Test Enemy.png" id="1_7r4e7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwp0c"]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_wwp0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_7r4e7")

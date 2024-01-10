@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-
 @export var SPEED = 300.0
-@export var ROTATION_SPEED = 5
+@export var ROTATION_SPEED = 4
 var mouse_enabled = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -13,16 +12,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var rayLength:int;
 var rayCasts:Array = [];
 func _physics_process(delta):
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity.y += gravity * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
 
 	# Get rotation
-	
+	# First check if we are using the mouse or the keyboard for rotation	
 	if Input.is_action_just_pressed("enable_mouse"):
 		mouse_enabled = !mouse_enabled
 	if mouse_enabled:

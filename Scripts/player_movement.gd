@@ -8,7 +8,10 @@ var mouse_enabled = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+@export var numRayCasts:int;
+@export var rayCastAngle:float;
+@export var rayLength:int;
+var rayCasts:Array = [];
 func _physics_process(delta):
 	## Add the gravity.
 	#if not is_on_floor():
@@ -34,3 +37,17 @@ func _physics_process(delta):
 	velocity = input_direction * SPEED
 
 	move_and_slide()
+
+func rayCasting():
+	rayCasts.clear();
+	var vector:Vector2 = Vector2(rayLength,0);
+	var space_rid = get_world_2d().space
+	var space_state = PhysicsServer2D.space_get_direct_state(space_rid)
+	for i in numRayCasts:
+		vector = vector.rotated((rayCastAngle/numRayCasts)*i)
+		var query = PhysicsRayQueryParameters2D.create(position, position+vector)
+		rayCasts.append(query);
+	
+	for x in numRayCasts:
+		var query = rayCasts[x]
+		var result = space_state.intersect_ray(query)

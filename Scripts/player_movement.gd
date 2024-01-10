@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var rayCastAngle:float;
 @export var rayLength:int;
 var rayCasts:Array = [];
+var dead = false;
 
 func _physics_process(delta):
 	
@@ -29,13 +30,19 @@ func _physics_process(delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * SPEED
 
+	if dead:
+		velocity = velocity * 0
+	
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().is_in_group("enemy"):
-			print("I hit an enemy!")
-			queue_free()
+			if !dead:
+				dead = true
+				print("I hit an enemy!")
+				await get_tree().create_timer(1.0).timeout
+				get_tree().reload_current_scene()
 
 func rayCasting():
 	rayCasts.clear();

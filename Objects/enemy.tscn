@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy_movement.gd" id="1_d6ix7"]
 [ext_resource type="Script" path="res://Scripts/VisibleObjects/VisibleEnemy.gd" id="1_ola76"]
-[ext_resource type="Texture2D" uid="uid://kyy6s8ir417r" path="res://Sprites/Test Enemy.png" id="3_bxyh4"]
+[ext_resource type="Texture2D" path="res://Sprites/Test Enemy.png" id="3_bxyh4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwp0c"]
 radius = 15.0

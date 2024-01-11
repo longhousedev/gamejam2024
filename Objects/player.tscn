@@ -22,4 +22,4 @@ texture = ExtResource("2_m881c")
 numRayCasts = 90
 rayCastAngle = 90.0
 rayLength = 5000
-offset = 10
+offset = 15

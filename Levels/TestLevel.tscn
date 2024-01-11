@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://baqrpr0yg6pqr"]
+[gd_scene load_steps=5 format=3 uid="uid://baqrpr0yg6pqr"]
 
 [ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="1_ckxj4"]
 [ext_resource type="PackedScene" uid="uid://d11som7k0yerv" path="res://Objects/enemy.tscn" id="2_4xm8f"]
 [ext_resource type="Texture2D" uid="uid://yirfcoqdo7ts" path="res://Sprites/VisionCone.png" id="2_d0vya"]
+[ext_resource type="PackedScene" uid="uid://bce7tnr8a25mf" path="res://Objects/barrier.tscn" id="4_2yust"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,6 +48,9 @@ position = Vector2(745, 74)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="Enemy10" parent="." instance=ExtResource("4_2yust")]
+position = Vector2(590, 546)
 
 [editable path="Player"]
 [editable path="Enemy"]

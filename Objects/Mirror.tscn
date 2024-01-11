@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://br5wikxahhvpa"]
+
+[ext_resource type="Script" path="res://Scripts/VisibleObjects/Mirror.gd" id="1_a7h8s"]
+[ext_resource type="Script" path="res://Scripts/RayCaster.gd" id="1_xhnth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr1qq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awe81"]
+size = Vector2(41, 40)
+
+[node name="Mirror" type="Node2D" node_paths=PackedStringArray("rayCasts", "body")]
+script = ExtResource("1_a7h8s")
+rayCasts = [NodePath("RayCaster"), NodePath("RayCaster2"), NodePath("RayCaster3")]
+offset = 5
+body = NodePath("RigidBody2D")
+
+[node name="RayCaster" type="Node2D" parent="."]
+script = ExtResource("1_xhnth")
+numRayCasts = 1
+rayLength = 1000
+offset = 1
+
+[node name="RayCaster2" type="Node2D" parent="."]
+script = ExtResource("1_xhnth")
+numRayCasts = 1
+rayLength = 1000
+offset = 1
+
+[node name="RayCaster3" type="Node2D" parent="."]
+script = ExtResource("1_xhnth")
+numRayCasts = 1
+rayLength = 1000
+offset = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_hr1qq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_awe81")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_player_body_entered"]

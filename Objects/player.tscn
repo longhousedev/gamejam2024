@@ -18,7 +18,7 @@ shape = SubResource("CircleShape2D_hjv2l")
 texture = ExtResource("2_m881c")
 
 [node name="RayCaster" parent="." instance=ExtResource("3_4gljd")]
-numRayCasts = 2
+numRayCasts = 10
 rayCastAngle = 45.0
 rayLength = 5000
-offset = 100
+offset = 75

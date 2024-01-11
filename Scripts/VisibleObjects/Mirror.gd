@@ -25,3 +25,8 @@ func set_visibility(new_visibility:bool):
 	super.set_visibility(new_visibility);
 	sprite.visible=new_visibility;
 	light.visible = new_visibility;
+	if(!is_visible):
+		for r in rayCasts:
+			for p in r.previousCasts:
+				if(p!=self):
+					p.set_visibility(false);

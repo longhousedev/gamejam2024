@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj8q0jxuuwda2"]
+[gd_scene load_steps=3 format=3 uid="uid://cj8q0jxuuwda2"]
 
+[ext_resource type="Script" path="res://Scripts/game_stats.gd" id="1_agale"]
 [ext_resource type="PackedScene" uid="uid://dn5st0udi0jh1" path="res://UI/main_menu.tscn" id="1_f5828"]
 
 [node name="SceneManager" type="Node2D"]
+script = ExtResource("1_agale")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_f5828")]

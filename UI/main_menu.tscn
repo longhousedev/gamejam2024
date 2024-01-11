@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn5st0udi0jh1"]
+[gd_scene load_steps=6 format=3 uid="uid://dn5st0udi0jh1"]
 
 [ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="1_j4erb"]
 [ext_resource type="Texture2D" path="res://Sprites/Character.png" id="1_s2ag0"]
+[ext_resource type="Script" path="res://Scripts/UI/open_controls.gd" id="2_pj1ii"]
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="2_pyur5"]
+[ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="4_kbm5y"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,9 +27,11 @@ layout_mode = 2
 text = "Play Game"
 script = ExtResource("1_j4erb")
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="ControlsButton" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("control_screen")]
 layout_mode = 2
-text = "Options"
+text = "Controls"
+script = ExtResource("2_pj1ii")
+control_screen = NodePath("../../ControlScreen")
 
 [node name="ExitButton3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -54,5 +58,64 @@ scale = Vector2(3.01926, 3.01926)
 text = "GOOGLY EYES"
 horizontal_alignment = 1
 
+[node name="ControlScreen" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 910.0
+offset_top = 524.0
+offset_right = 950.0
+offset_bottom = 564.0
+
+[node name="ColorRect" type="ColorRect" parent="ControlScreen"]
+layout_mode = 0
+offset_left = -928.0
+offset_top = -526.0
+offset_right = -888.0
+offset_bottom = -486.0
+scale = Vector2(29.9134, 16.6839)
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ControlScreen"]
+layout_mode = 2
+offset_left = -871.0
+offset_top = -474.0
+offset_right = -276.0
+offset_bottom = -163.0
+scale = Vector2(1.76479, 1.76479)
+
+[node name="Title" type="Label" parent="ControlScreen/VBoxContainer2"]
+layout_mode = 2
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Narrative" type="Label" parent="ControlScreen/VBoxContainer2"]
+layout_mode = 2
+text = "[INSERT NARRATIVE TEXT HERE.]
+[YOU ARE DEAD. NOT BIG SURPRISE.]
+[GET TO THE END WITHOUT BEING EATEN BY ELDRITCH ABOMINATIONS LOL.]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Label" parent="ControlScreen/VBoxContainer2"]
+layout_mode = 2
+text = "Movement:
+WASD / Arrow Keys
+Turn Anticlockwise (Keyboard):
+Q / Ctrl
+Turn Clockwise (Keyboard):
+E / Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsButton" type="Button" parent="ControlScreen"]
+offset_right = 74.0
+offset_bottom = 31.0
+scale = Vector2(1.42013, 1.42013)
+text = "Close"
+script = ExtResource("4_kbm5y")
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="VBoxContainer/ControlsButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton3" to="VBoxContainer/ExitButton3" method="_on_pressed"]
+[connection signal="pressed" from="ControlScreen/ControlsButton" to="ControlScreen/ControlsButton" method="_on_pressed"]

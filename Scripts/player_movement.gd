@@ -3,14 +3,8 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var ROTATION_SPEED = 4
 var mouse_enabled = false
+@export var rayCaster:RayCaster
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-@export var numRayCasts:int;
-@export var rayCastAngle:float;
-@export var rayLength:int;
-var rayCasts:Array = [];
 var dead = false;
 
 func _physics_process(delta):
@@ -33,6 +27,8 @@ func _physics_process(delta):
 	if dead:
 		velocity = velocity * 0
 	
+	##raycasting
+	rayCaster.rayCasting(global_position,global_rotation_degrees);
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
@@ -44,16 +40,3 @@ func _physics_process(delta):
 				await get_tree().create_timer(1.0).timeout
 				get_tree().reload_current_scene()
 
-func rayCasting():
-	rayCasts.clear();
-	var vector:Vector2 = Vector2(rayLength,0);
-	var space_rid = get_world_2d().space
-	var space_state = PhysicsServer2D.space_get_direct_state(space_rid)
-	for i in numRayCasts:
-		vector = vector.rotated((rayCastAngle/numRayCasts)*i)
-		var query = PhysicsRayQueryParameters2D.create(position, position+vector)
-		rayCasts.append(query);
-	
-	for x in numRayCasts:
-		var query = rayCasts[x]
-		var result = space_state.intersect_ray(query)

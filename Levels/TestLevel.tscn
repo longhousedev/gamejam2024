@@ -1,17 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://baqrpr0yg6pqr"]
+[gd_scene load_steps=3 format=3 uid="uid://baqrpr0yg6pqr"]
 
 [ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="1_ckxj4"]
 [ext_resource type="PackedScene" uid="uid://d11som7k0yerv" path="res://Objects/enemy.tscn" id="2_4xm8f"]
-[ext_resource type="Script" path="res://Scripts/VisibilityManager.gd" id="2_i0r5n"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ckxj4")]
 position = Vector2(586, 341)
 
-[node name="VisibilityManager" type="Node" parent="."]
-script = ExtResource("2_i0r5n")
-
 [node name="Enemy" parent="." instance=ExtResource("2_4xm8f")]
 position = Vector2(869, 168)
 scale = Vector2(1.5, 1.5)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(941, 338)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(877, 535)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(592, 612)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(405, 537)
+
+[node name="Enemy6" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(237, 361)
+
+[node name="Enemy7" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(346, 180)
+
+[node name="Enemy8" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(524, 85)
+
+[node name="Enemy9" parent="." instance=ExtResource("2_4xm8f")]
+position = Vector2(745, 74)
+
+[editable path="Player"]
+[editable path="Enemy"]

@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://baqrpr0yg6pqr"]
+[gd_scene load_steps=4 format=3 uid="uid://baqrpr0yg6pqr"]
 
 [ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="1_ckxj4"]
 [ext_resource type="PackedScene" uid="uid://d11som7k0yerv" path="res://Objects/enemy.tscn" id="2_4xm8f"]
+[ext_resource type="Texture2D" uid="uid://yirfcoqdo7ts" path="res://Sprites/VisionCone.png" id="2_d0vya"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ckxj4")]
 position = Vector2(586, 341)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+rotation = 1.5708
+shadow_enabled = true
+texture = ExtResource("2_d0vya")
 
 [node name="Enemy" parent="." instance=ExtResource("2_4xm8f")]
 position = Vector2(869, 168)
@@ -35,6 +41,9 @@ position = Vector2(524, 85)
 
 [node name="Enemy9" parent="." instance=ExtResource("2_4xm8f")]
 position = Vector2(745, 74)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.309804, 0.309804, 0.309804, 1)
 
 [editable path="Player"]
 [editable path="Enemy"]

@@ -19,6 +19,6 @@ texture = ExtResource("2_m881c")
 
 [node name="RayCaster" parent="." instance=ExtResource("3_4gljd")]
 numRayCasts = 2
-rayCastAngle = 30.0
+rayCastAngle = 45.0
 rayLength = 5000
-offset = 10
+offset = 100

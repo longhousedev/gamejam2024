@@ -24,7 +24,7 @@ func rayCasting(pos:Vector2,angle:float):
 		var result = space_state.intersect_ray(query)
 		if(!result.is_empty()):
 			results.append(result["collider"].get_parent());
-	print(results)		
+	
 	for result in results:
 		if result is Visible:
 			if(pos.distance_to(result.position)>offset):

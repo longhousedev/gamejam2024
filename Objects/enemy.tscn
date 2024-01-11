@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d11som7k0yerv"]
+[gd_scene load_steps=5 format=3 uid="uid://d11som7k0yerv"]
 
 [ext_resource type="Texture2D" uid="uid://d2cdag2gm0vtt" path="res://Test Enemy.png" id="1_7r4e7"]
+[ext_resource type="Script" path="res://Scripts/enemy_movement.gd" id="1_d6ix7"]
 [ext_resource type="Script" path="res://Scripts/VisibleObjects/VisibleEnemy.gd" id="1_ola76"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwp0c"]
@@ -12,6 +13,7 @@ sprite = NodePath("CharacterBody2D/Sprite2D")
 body = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemy"]]
+script = ExtResource("1_d6ix7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_wwp0c")

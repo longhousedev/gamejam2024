@@ -8,7 +8,6 @@
 radius = 64.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("rayCaster") groups=["player"]]
-motion_mode = 1
 script = ExtResource("1_ubmd4")
 rayCaster = NodePath("RayCaster")
 
@@ -19,7 +18,7 @@ shape = SubResource("CircleShape2D_hjv2l")
 texture = ExtResource("2_m881c")
 
 [node name="RayCaster" parent="." instance=ExtResource("3_4gljd")]
-numRayCasts = 90
-rayCastAngle = 90.0
+numRayCasts = 10
+rayCastAngle = 45.0
 rayLength = 5000
-offset = 15
+offset = 75

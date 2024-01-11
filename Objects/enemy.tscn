@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://nuyv2pcwdehp"]
+[gd_scene load_steps=6 format=3 uid="uid://nuyv2pcwdehp"]
 
 [ext_resource type="Texture2D" uid="uid://d2cdag2gm0vtt" path="res://Test Enemy.png" id="1_7r4e7"]
 [ext_resource type="Script" path="res://Scripts/VisibleObjects/VisibleEnemy.gd" id="1_ola76"]
 [ext_resource type="Script" path="res://Objects/move_to.gd" id="2_o83io"]
+[ext_resource type="Script" path="res://Objects/Patrol.gd" id="4_qw7cj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwp0c"]
 radius = 15.0
@@ -22,3 +23,10 @@ shape = SubResource("CircleShape2D_wwp0c")
 texture = ExtResource("1_7r4e7")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+
+[node name="State Machine" type="Node2D" parent="."]
+
+[node name="Patrol" type="Node2D" parent="State Machine"]
+script = ExtResource("4_qw7cj")
+
+[node name="Chase" type="Node2D" parent="State Machine"]

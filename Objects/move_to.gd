@@ -1,7 +1,8 @@
-extends CharacterBody2D
+class_name enemy_move extends CharacterBody2D
 
+@export var waypoint_list:Array
 @export var player_script: Player_Movement
-var movement_speed: float = 1
+var movement_speed: float = 100
 var movement_target_position: Vector2
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -14,6 +15,9 @@ func _ready():
 
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
+	
+func is_reached_destination():
+	return navigation_agent.is_navigation_finished()
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -27,10 +31,8 @@ func set_movement_target(movement_target: Vector2):
 
 func _physics_process(delta):
 	
-	set_movement_target(player_script.position)
-	
-	if navigation_agent.is_navigation_finished():
-		return
+	#if navigation_agent.is_navigation_finished():
+		#return
 
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()

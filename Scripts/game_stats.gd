@@ -1,4 +1,4 @@
-extends Node
+class_name Stats extends Node
 
 @export var mouse_enabled = false
 @export var deathcount = 0

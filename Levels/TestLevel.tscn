@@ -18,6 +18,9 @@ texture = ExtResource("2_d0vya")
 position = Vector2(869, 168)
 scale = Vector2(1.5, 1.5)
 
+[node name="CharacterBody2D" parent="Enemy" index="0"]
+motion_mode = 1
+
 [node name="Enemy2" parent="." instance=ExtResource("2_4xm8f")]
 position = Vector2(941, 338)
 

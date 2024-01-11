@@ -27,9 +27,10 @@ func _physics_process(delta):
 	else:
 		velocity = velocity * 0
 	
+	move_and_slide()
+	
 	##raycasting
 	rayCaster.rayCasting(global_position,global_rotation_degrees);
-	move_and_slide()
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)

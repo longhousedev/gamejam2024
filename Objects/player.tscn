@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://diqeaab1akt8r"]
 
 [ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_ubmd4"]
-[ext_resource type="Texture2D" uid="uid://b380uc16lsm3h" path="res://icon.svg" id="2_m881c"]
+[ext_resource type="Texture2D" uid="uid://b380uc16lsm3h" path="res://Sprites/icon.svg" id="2_blcs2"]
 [ext_resource type="PackedScene" uid="uid://rx6ate3vnsmx" path="res://Objects/ray_caster.tscn" id="3_4gljd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjv2l"]
@@ -15,7 +15,7 @@ rayCaster = NodePath("RayCaster")
 shape = SubResource("CircleShape2D_hjv2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_m881c")
+texture = ExtResource("2_blcs2")
 
 [node name="RayCaster" parent="." instance=ExtResource("3_4gljd")]
 numRayCasts = 10

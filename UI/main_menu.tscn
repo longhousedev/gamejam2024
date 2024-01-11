@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn5st0udi0jh1"]
+
+[ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="1_j4erb"]
+[ext_resource type="Texture2D" uid="uid://cqi4cp1bq0wce" path="res://Sprites/Character.png" id="1_s2ag0"]
+[ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="2_pyur5"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 223.0
+offset_right = 449.0
+offset_bottom = 324.0
+scale = Vector2(2.29539, 2.29539)
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play Game"
+script = ExtResource("1_j4erb")
+
+[node name="OptionsButton2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="ExitButton3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("2_pyur5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 73.0
+offset_right = 1410.0
+offset_bottom = 945.0
+scale = Vector2(0.595679, 0.595679)
+texture = ExtResource("1_s2ag0")
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 84.0
+offset_right = 400.0
+offset_bottom = 107.0
+scale = Vector2(3.01926, 3.01926)
+text = "GOOGLY EYES"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton3" to="VBoxContainer/ExitButton3" method="_on_pressed"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d11som7k0yerv"]
 
-[ext_resource type="Texture2D" uid="uid://d2cdag2gm0vtt" path="res://Test Enemy.png" id="1_7r4e7"]
 [ext_resource type="Script" path="res://Scripts/enemy_movement.gd" id="1_d6ix7"]
 [ext_resource type="Script" path="res://Scripts/VisibleObjects/VisibleEnemy.gd" id="1_ola76"]
+[ext_resource type="Texture2D" uid="uid://kyy6s8ir417r" path="res://Sprites/Test Enemy.png" id="3_bxyh4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwp0c"]
 radius = 15.0
@@ -19,4 +19,4 @@ script = ExtResource("1_d6ix7")
 shape = SubResource("CircleShape2D_wwp0c")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_7r4e7")
+texture = ExtResource("3_bxyh4")

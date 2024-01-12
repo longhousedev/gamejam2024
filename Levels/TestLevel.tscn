@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://yirfcoqdo7ts" path="res://Sprites/VisionCone.png" id="2_d0vya"]
 [ext_resource type="PackedScene" uid="uid://bce7tnr8a25mf" path="res://Objects/barrier.tscn" id="4_2yust"]
 [ext_resource type="PackedScene" uid="uid://br5wikxahhvpa" path="res://Objects/Mirror.tscn" id="5_632dl"]
-[ext_resource type="AudioStream" uid="uid://bgscnsmjqcwf4" path="res://Audio/Music/Level Theme.mp3" id="6_4xang"]
+[ext_resource type="AudioStream" uid="uid://bft8q5go52px" path="res://Audio/Music/LevelTheme.wav" id="6_eessk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -55,7 +55,7 @@ position = Vector2(590, 546)
 position = Vector2(310, 544)
 
 [node name="LevelTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_4xang")
+stream = ExtResource("6_eessk")
 autoplay = true
 
 [editable path="Player"]

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="2_hbyng"]
 [ext_resource type="Script" path="res://Scripts/UI/open_controls.gd" id="3_0y7fj"]
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
-[ext_resource type="AudioStream" uid="uid://135scsn5sl55" path="res://Audio/Music/Main Menu Theme.mp3" id="5_8jdrm"]
+[ext_resource type="AudioStream" uid="uid://crfmbs2xpi17p" path="res://Audio/Music/MainMenu.wav" id="5_s88hx"]
 [ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
 [ext_resource type="PackedScene" uid="uid://baqrpr0yg6pqr" path="res://Levels/TestLevel.tscn" id="6_chqkj"]
 
@@ -48,7 +48,7 @@ script = ExtResource("4_im24r")
 [node name="MainMenuTheme" type="AudioStreamPlayer2D" parent="MainMenu/VBoxContainer"]
 position = Vector2(-156.4, -97.1513)
 scale = Vector2(0.435656, 0.435656)
-stream = ExtResource("5_8jdrm")
+stream = ExtResource("5_s88hx")
 autoplay = true
 
 [node name="Label" type="Label" parent="MainMenu"]

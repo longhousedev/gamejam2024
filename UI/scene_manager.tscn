@@ -1,10 +1,137 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj8q0jxuuwda2"]
+[gd_scene load_steps=8 format=3 uid="uid://bmdfm6yxfepbf"]
 
-[ext_resource type="PackedScene" uid="uid://dn5st0udi0jh1" path="res://UI/main_menu.tscn" id="1_f5828"]
-[ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_m1vsw"]
+[ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
+[ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="2_hbyng"]
+[ext_resource type="Script" path="res://Scripts/UI/open_controls.gd" id="3_0y7fj"]
+[ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
+[ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
+[ext_resource type="PackedScene" uid="uid://baqrpr0yg6pqr" path="res://Levels/TestLevel.tscn" id="6_chqkj"]
 
-[node name="SceneManager" type="Node2D"]
+[node name="Game" type="Node"]
+script = ExtResource("1_vj1v7")
 
-[node name="GameStats" parent="." instance=ExtResource("1_m1vsw")]
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MainMenu" parent="." instance=ExtResource("1_f5828")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 223.0
+offset_right = 449.0
+offset_bottom = 324.0
+scale = Vector2(2.29539, 2.29539)
+
+[node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer" node_paths=PackedStringArray("gameStats")]
+layout_mode = 2
+text = "Play Game"
+script = ExtResource("2_hbyng")
+gameStats = NodePath("../../../GameStats")
+
+[node name="ControlsButton" type="Button" parent="MainMenu/VBoxContainer" node_paths=PackedStringArray("control_screen")]
+layout_mode = 2
+text = "Controls"
+script = ExtResource("3_0y7fj")
+control_screen = NodePath("../../ControlScreen")
+
+[node name="ExitButton3" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("4_im24r")
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 84.0
+offset_right = 400.0
+offset_bottom = 107.0
+scale = Vector2(3.01926, 3.01926)
+text = "GOOGLY EYES"
+horizontal_alignment = 1
+
+[node name="ControlScreen" type="Control" parent="MainMenu"]
+visible = false
+anchors_preset = 0
+offset_left = 910.0
+offset_top = 524.0
+offset_right = 950.0
+offset_bottom = 564.0
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu/ControlScreen"]
+layout_mode = 0
+offset_left = -928.0
+offset_top = -526.0
+offset_right = -888.0
+offset_bottom = -486.0
+scale = Vector2(29.9134, 16.6839)
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ControlScreen"]
+layout_mode = 2
+offset_left = -871.0
+offset_top = -474.0
+offset_right = -276.0
+offset_bottom = -163.0
+scale = Vector2(1.76479, 1.76479)
+
+[node name="Title" type="Label" parent="MainMenu/ControlScreen/VBoxContainer"]
+layout_mode = 2
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Narrative" type="Label" parent="MainMenu/ControlScreen/VBoxContainer"]
+layout_mode = 2
+text = "[INSERT NARRATIVE TEXT HERE.]
+[YOU ARE DEAD. NOT BIG SURPRISE.]
+[GET TO THE END WITHOUT BEING EATEN BY ELDRITCH ABOMINATIONS LOL.]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Label" parent="MainMenu/ControlScreen/VBoxContainer"]
+layout_mode = 2
+text = "Movement:
+WASD / Arrow Keys
+Turn Anticlockwise (Keyboard):
+Q / Ctrl
+Turn Clockwise (Keyboard):
+E / Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ControlScreen/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MainMenu/ControlScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Enable Mouse Cursor for
+turning instead of Keyboard:"
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="MainMenu/ControlScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ControlsButton" type="Button" parent="MainMenu/ControlScreen"]
+layout_mode = 0
+offset_left = 71.0001
+offset_top = 46.0
+offset_right = 145.0
+offset_bottom = 77.0
+scale = Vector2(2.02536, 2.02536)
+text = "Close"
+script = ExtResource("5_t08ud")
+
+[node name="GameStats" parent="." node_paths=PackedStringArray("mainMenu") instance=ExtResource("1_iimn1")]
+mainMenu = NodePath("../MainMenu")
+levels = Array[PackedScene]([ExtResource("6_chqkj")])
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu/VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/ControlsButton" to="MainMenu/VBoxContainer/ControlsButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/ExitButton3" to="MainMenu/VBoxContainer/ExitButton3" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/ControlScreen/ControlsButton" to="MainMenu/ControlScreen/ControlsButton" method="_on_pressed"]

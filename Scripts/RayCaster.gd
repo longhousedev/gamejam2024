@@ -31,8 +31,9 @@ func rayCasting(pos:Vector2,angle:float):
 				result.set_visibility(true)
 	for y in previousCasts:
 		if !results.has(y):
-			if (y is Visible):
-				y.set_visibility(false);
+			if(!y == null):
+				if (y is Visible):
+					y.set_visibility(false);
 	previousCasts = results.duplicate();
 	rayCasts.clear();
 	results.clear();

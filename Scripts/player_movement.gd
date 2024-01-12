@@ -6,7 +6,9 @@ var mouse_enabled = false
 @export var rayCaster:RayCaster
 
 var dead = false;
-
+var gameStats:Stats
+func _ready():
+	pass;
 func _physics_process(delta):
 	
 	# Get rotation
@@ -39,5 +41,5 @@ func _physics_process(delta):
 				dead = true
 				print("I hit an enemy!")
 				await get_tree().create_timer(1.0).timeout
-				get_tree().reload_current_scene()
+				GameManager.gameStats.player_died();
 

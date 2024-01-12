@@ -1,15 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://nuyv2pcwdehp"]
+[gd_scene load_steps=9 format=3 uid="uid://nuyv2pcwdehp"]
 
-[ext_resource type="Texture2D" uid="uid://d2cdag2gm0vtt" path="res://Test Enemy.png" id="1_7r4e7"]
-[ext_resource type="Script" path="res://Scripts/VisibleObjects/VisibleEnemy.gd" id="1_ola76"]
+[ext_resource type="Script" path="res://Objects/AnimatedVisible.gd" id="1_nh7rm"]
 [ext_resource type="Script" path="res://Scripts/move_to.gd" id="2_m1sbc"]
+[ext_resource type="Texture2D" uid="uid://djigcdbp7n14s" path="res://Sprites/Enemies/EyeEnemy/EyeEnemySouth.png" id="3_6wuwe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwp0c"]
 radius = 15.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qlwn"]
+atlas = ExtResource("3_6wuwe")
+region = Rect2(0, 0, 30, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij3q2"]
+atlas = ExtResource("3_6wuwe")
+region = Rect2(30, 0, 30, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbelq"]
+atlas = ExtResource("3_6wuwe")
+region = Rect2(60, 0, 30, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jcmc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qlwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij3q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbelq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Enemy" type="Node2D" node_paths=PackedStringArray("sprite", "body")]
-script = ExtResource("1_ola76")
-sprite = NodePath("CharacterBody2D/Sprite2D")
+script = ExtResource("1_nh7rm")
+sprite = NodePath("CharacterBody2D/AnimatedSprite2D")
 body = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemy"]]
@@ -18,10 +47,11 @@ script = ExtResource("2_m1sbc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_wwp0c")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_7r4e7")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_2jcmc")
+autoplay = "default"
 
 [node name="State Machine" type="Node2D" parent="."]
 

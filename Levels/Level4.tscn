@@ -1,6 +1,89 @@
-[gd_scene format=3 uid="uid://tc1uwt0jegvo"]
+[gd_scene load_steps=8 format=3 uid="uid://tc1uwt0jegvo"]
+
+[ext_resource type="PackedScene" uid="uid://c5neqm5dj8ix1" path="res://Objects/wall.tscn" id="1_eltg1"]
+[ext_resource type="PackedScene" uid="uid://b1jpqkwvc2ew7" path="res://Objects/level_end.tscn" id="2_gnw8o"]
+[ext_resource type="PackedScene" uid="uid://br5wikxahhvpa" path="res://Objects/Mirror.tscn" id="3_u10qn"]
+[ext_resource type="PackedScene" uid="uid://dcae43m3ax10g" path="res://Objects/door.tscn" id="4_aj5vg"]
+[ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="5_ctmc5"]
+[ext_resource type="PackedScene" uid="uid://nuyv2pcwdehp" path="res://Objects/enemy.tscn" id="6_wd701"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g7j0w"]
+vertices = PackedVector2Array(-593, 52, -598, -142, 778, -150, 766, -106, -8, 46, 1069, 171, 1083, 415, -6, 405, 623, 168, 645, 106, 1021, -102, 1020, 109)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 4, 9), PackedInt32Array(3, 10, 11, 9, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-609, -152, -603, 63, -18, 56, -16, 415, 1094, 426, 1079, 162, 637, 158, 652, 116, 1030, 120, 1032, -112, 779, -116, 792, -161)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level4" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="Wall2" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(218, -8)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall3" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(652, -11)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall11" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(1085, 9)
+
+[node name="Wall6" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(71, 599)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall7" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(501.5, 599)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall13" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(934.5, 619)
+
+[node name="LevelEnd" parent="." instance=ExtResource("2_gnw8o")]
+position = Vector2(1153, 169)
+scale = Vector2(2, 2)
+
+[node name="Wall8" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(12, 399)
+rotation = 1.5708
+scale = Vector2(0.421703, 0.2)
+
+[node name="Wall10" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(1153, 447)
+rotation = 1.5708
+scale = Vector2(0.358415, 0.2)
+
+[node name="Wall4" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(919, 303)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall5" parent="." instance=ExtResource("1_eltg1")]
+position = Vector2(461, 375)
+rotation = 2.0944
+scale = Vector2(0.2, 0.2)
+
+[node name="Mirror" parent="." instance=ExtResource("3_u10qn")]
+position = Vector2(680, 517)
+
+[node name="Mirror2" parent="." instance=ExtResource("3_u10qn")]
+position = Vector2(133, 72)
+rotation = 1.5708
+
+[node name="Door" parent="." instance=ExtResource("4_aj5vg")]
+position = Vector2(1067, 411)
+
+[node name="Door" parent="Door" index="0"]
+position = Vector2(41.75, -245)
+scale = Vector2(0.320833, 0.307305)
+
+[node name="Player" parent="." instance=ExtResource("5_ctmc5")]
+position = Vector2(51, 158)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Player"]
+navigation_polygon = SubResource("NavigationPolygon_g7j0w")
+
+[node name="Enemy" parent="." instance=ExtResource("6_wd701")]
+position = Vector2(-412, 164)
+
+[editable path="Door"]

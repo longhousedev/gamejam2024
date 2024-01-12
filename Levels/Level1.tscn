@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://chuf4o3lu4lcj"]
+[gd_scene load_steps=8 format=3 uid="uid://chuf4o3lu4lcj"]
 
 [ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="1_y8o57"]
 [ext_resource type="PackedScene" uid="uid://bce7tnr8a25mf" path="res://Objects/barrier.tscn" id="2_x6muv"]
 [ext_resource type="PackedScene" uid="uid://c5neqm5dj8ix1" path="res://Objects/wall.tscn" id="3_bk1oq"]
 [ext_resource type="PackedScene" uid="uid://b1jpqkwvc2ew7" path="res://Objects/level_end.tscn" id="4_rk8q5"]
 [ext_resource type="Texture2D" uid="uid://cujfl14d7gmkm" path="res://Sprites/Terrain/plinth.png" id="5_y5dfe"]
+[ext_resource type="PackedScene" uid="uid://nuyv2pcwdehp" path="res://Objects/enemy.tscn" id="6_c4mrv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uqh12"]
+vertices = PackedVector2Array(416, 381, 418, 518, 14, 517, 14, 112, 414, 114, 429, 283, 852, 376, 851, 282)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 0, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 102, 424, 105, 438, 273, 861, 272, 863, 386, 426, 391, 429, 529, 5, 527)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level1" type="Node2D"]
 
@@ -53,3 +60,14 @@ texture = ExtResource("5_y5dfe")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(235, 322)
 color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="Enemy" parent="." instance=ExtResource("6_c4mrv")]
+position = Vector2(34, 314)
+
+[node name="CharacterBody2D" parent="Enemy" index="0" node_paths=PackedStringArray("player_script")]
+player_script = NodePath("../../Player")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_uqh12")
+
+[editable path="Enemy"]

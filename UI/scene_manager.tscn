@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmdfm6yxfepbf"]
+[gd_scene load_steps=9 format=3 uid="uid://bmdfm6yxfepbf"]
 
 [ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
 [ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="2_hbyng"]
 [ext_resource type="Script" path="res://Scripts/UI/open_controls.gd" id="3_0y7fj"]
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
+[ext_resource type="AudioStream" uid="uid://135scsn5sl55" path="res://Audio/Music/Main Menu Theme.mp3" id="5_8jdrm"]
 [ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
 [ext_resource type="PackedScene" uid="uid://baqrpr0yg6pqr" path="res://Levels/TestLevel.tscn" id="6_chqkj"]
 
@@ -43,6 +44,12 @@ control_screen = NodePath("../../ControlScreen")
 layout_mode = 2
 text = "Exit"
 script = ExtResource("4_im24r")
+
+[node name="MainMenuTheme" type="AudioStreamPlayer2D" parent="MainMenu/VBoxContainer"]
+position = Vector2(-156.4, -97.1513)
+scale = Vector2(0.435656, 0.435656)
+stream = ExtResource("5_8jdrm")
+autoplay = true
 
 [node name="Label" type="Label" parent="MainMenu"]
 layout_mode = 0

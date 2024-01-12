@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmdfm6yxfepbf"]
+[gd_scene load_steps=15 format=3 uid="uid://bmdfm6yxfepbf"]
 
 [ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
+[ext_resource type="Texture2D" uid="uid://dlae53rm2y27e" path="res://Sprites/Cthulhu Emblem.png" id="2_1mwsa"]
 [ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="2_hbyng"]
 [ext_resource type="Script" path="res://Scripts/UI/open_controls.gd" id="3_0y7fj"]
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
@@ -25,13 +26,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(30.0345, 17.6998)
+color = Color(0.101961, 0.145098, 0.145098, 1)
+
+[node name="CthulhuEmblem" type="Sprite2D" parent="MainMenu/ColorRect"]
+position = Vector2(26.636, 18.8137)
+scale = Vector2(0.0488565, 0.0829039)
+texture = ExtResource("2_1mwsa")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 253.0
-offset_right = 559.0
-offset_bottom = 354.0
-scale = Vector2(2.29539, 2.29539)
+offset_left = 254.0
+offset_top = 284.0
+offset_right = 344.0
+offset_bottom = 385.0
+scale = Vector2(1.75936, 1.75936)
 
 [node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer" node_paths=PackedStringArray("gameStats")]
 layout_mode = 2
@@ -58,11 +71,11 @@ autoplay = true
 
 [node name="Label" type="Label" parent="MainMenu"]
 layout_mode = 0
-offset_left = 385.0
-offset_top = 90.0
-offset_right = 506.0
-offset_bottom = 113.0
-scale = Vector2(3.01926, 3.01926)
+offset_left = 204.0
+offset_top = 120.0
+offset_right = 325.0
+offset_bottom = 143.0
+scale = Vector2(1.74326, 1.74326)
 text = "See What Exists"
 horizontal_alignment = 1
 
@@ -81,7 +94,7 @@ offset_top = -526.0
 offset_right = -888.0
 offset_bottom = -486.0
 scale = Vector2(29.9134, 16.6839)
-color = Color(0.154876, 0.154876, 0.154876, 1)
+color = Color(0.113725, 0.160784, 0.160784, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/ControlScreen"]
 layout_mode = 2

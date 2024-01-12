@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player_Movement extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var ROTATION_SPEED = 4

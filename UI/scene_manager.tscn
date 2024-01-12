@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmdfm6yxfepbf"]
+[gd_scene load_steps=17 format=3 uid="uid://bmdfm6yxfepbf"]
 
 [ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
 [ext_resource type="Texture2D" uid="uid://dlae53rm2y27e" path="res://Sprites/Cthulhu Emblem.png" id="2_1mwsa"]
 [ext_resource type="Script" path="res://Scripts/UI/play_game.gd" id="2_hbyng"]
 [ext_resource type="Script" path="res://Scripts/UI/open_controls.gd" id="3_0y7fj"]
+[ext_resource type="Script" path="res://Scripts/UI/secret.gd" id="3_y0jwa"]
+[ext_resource type="Texture2D" uid="uid://b27m4kjp2mohs" path="res://Sprites/Easter Egg.png" id="4_2h2fs"]
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
 [ext_resource type="AudioStream" uid="uid://135scsn5sl55" path="res://Audio/Music/Main Menu Theme.mp3" id="5_8jdrm"]
 [ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
@@ -33,10 +35,18 @@ offset_bottom = 40.0
 scale = Vector2(30.0345, 17.6998)
 color = Color(0.101961, 0.145098, 0.145098, 1)
 
-[node name="CthulhuEmblem" type="Sprite2D" parent="MainMenu/ColorRect"]
+[node name="CthulhuEmblem" type="Sprite2D" parent="MainMenu/ColorRect" node_paths=PackedStringArray("secret")]
 position = Vector2(26.636, 18.8137)
 scale = Vector2(0.0488565, 0.0829039)
 texture = ExtResource("2_1mwsa")
+script = ExtResource("3_y0jwa")
+secret = NodePath("EasterEgg")
+
+[node name="EasterEgg" type="Sprite2D" parent="MainMenu/ColorRect/CthulhuEmblem"]
+visible = false
+position = Vector2(2.04447, -40.8891)
+scale = Vector2(0.233085, 0.233085)
+texture = ExtResource("4_2h2fs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
@@ -71,10 +81,10 @@ autoplay = true
 
 [node name="Label" type="Label" parent="MainMenu"]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 120.0
-offset_right = 325.0
-offset_bottom = 143.0
+offset_left = 231.0
+offset_top = 116.0
+offset_right = 352.0
+offset_bottom = 139.0
 scale = Vector2(1.74326, 1.74326)
 text = "See What Exists"
 horizontal_alignment = 1

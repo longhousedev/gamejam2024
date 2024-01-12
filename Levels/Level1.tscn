@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://chuf4o3lu4lcj"]
+[gd_scene load_steps=6 format=3 uid="uid://chuf4o3lu4lcj"]
 
 [ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="1_y8o57"]
 [ext_resource type="PackedScene" uid="uid://bce7tnr8a25mf" path="res://Objects/barrier.tscn" id="2_x6muv"]
 [ext_resource type="PackedScene" uid="uid://c5neqm5dj8ix1" path="res://Objects/wall.tscn" id="3_bk1oq"]
+[ext_resource type="PackedScene" uid="uid://b1jpqkwvc2ew7" path="res://Objects/level_end.tscn" id="4_rk8q5"]
+[ext_resource type="Texture2D" uid="uid://cujfl14d7gmkm" path="res://Sprites/Terrain/plinth.png" id="5_y5dfe"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_y8o57")]
-position = Vector2(102, 306)
+position = Vector2(235, 322)
 
 [node name="Barrier" parent="." instance=ExtResource("2_x6muv")]
 position = Vector2(489, 331)
@@ -18,6 +20,32 @@ position = Vector2(660, 332)
 rotation = 1.5708
 
 [node name="Wall" parent="." instance=ExtResource("3_bk1oq")]
+position = Vector2(652, 232)
 
 [node name="Wall2" parent="." instance=ExtResource("3_bk1oq")]
-position = Vector2(616, 429)
+position = Vector2(650, 426)
+
+[node name="Wall3" parent="." instance=ExtResource("3_bk1oq")]
+position = Vector2(216, 62)
+
+[node name="Wall4" parent="." instance=ExtResource("3_bk1oq")]
+position = Vector2(215, 568)
+
+[node name="VerticalWall" parent="." instance=ExtResource("3_bk1oq")]
+position = Vector2(470, 679)
+rotation = 1.5708
+
+[node name="VerticalWall2" parent="." instance=ExtResource("3_bk1oq")]
+position = Vector2(470, -22)
+rotation = 1.5708
+
+[node name="VerticalWall3" parent="." instance=ExtResource("3_bk1oq")]
+position = Vector2(-30, 314)
+rotation = 1.5708
+
+[node name="LevelEnd" parent="." instance=ExtResource("4_rk8q5")]
+
+[node name="Plinth" type="Sprite2D" parent="."]
+position = Vector2(169, 341)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y5dfe")

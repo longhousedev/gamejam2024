@@ -4,11 +4,12 @@ class_name Player_Movement extends CharacterBody2D
 @export var ROTATION_SPEED = 4
 var mouse_enabled = false
 @export var rayCaster:RayCaster
-
+@export var light:PointLight2D
 var dead = false;
 var gameStats:Stats
 var mirror:Mirror;
 var grabbed:bool = false;
+var rotationAmount = 0;
 func _ready():
 	GameManager.player = self;
 func _physics_process(delta):
@@ -22,7 +23,8 @@ func _physics_process(delta):
 			look_at(get_global_mouse_position())
 		else:
 			var rotate_direction = Input.get_axis("rotate_anticlock", "rotate_clock")
-			rotation += rotate_direction * ROTATION_SPEED * delta
+			rotationAmount = rotate_direction * ROTATION_SPEED * delta
+			light.rotate((rotationAmount))
 		if Input.is_action_just_pressed("Grab"):
 			grab();
 	# Get the input direction and handle the movement/deceleration.
@@ -36,7 +38,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	##raycasting
-	rayCaster.rayCasting(global_position,global_rotation_degrees);
+	rayCaster.rayCasting(global_position,light.rotation_degrees-90);
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)

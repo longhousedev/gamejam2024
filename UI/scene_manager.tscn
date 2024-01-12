@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmdfm6yxfepbf"]
+[gd_scene load_steps=8 format=3 uid="uid://bmdfm6yxfepbf"]
 
 [ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
 [ext_resource type="AudioStream" uid="uid://135scsn5sl55" path="res://Audio/Music/Main Menu Theme.mp3" id="5_8jdrm"]
 [ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
-[ext_resource type="PackedScene" uid="uid://baqrpr0yg6pqr" path="res://Levels/TestLevel.tscn" id="6_chqkj"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_vj1v7")
@@ -136,7 +135,6 @@ script = ExtResource("5_t08ud")
 
 [node name="GameStats" parent="." node_paths=PackedStringArray("mainMenu") instance=ExtResource("1_iimn1")]
 mainMenu = NodePath("../MainMenu")
-levels = Array[PackedScene]([ExtResource("6_chqkj")])
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu/VBoxContainer/PlayButton" method="_on_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/ControlsButton" to="MainMenu/VBoxContainer/ControlsButton" method="_on_pressed"]

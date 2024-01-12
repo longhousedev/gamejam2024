@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://f1amb0kd5qih"]
+[gd_scene load_steps=3 format=3 uid="uid://f1amb0kd5qih"]
 
 [ext_resource type="Script" path="res://Scripts/game_stats.gd" id="1_y7awf"]
+[ext_resource type="PackedScene" uid="uid://chuf4o3lu4lcj" path="res://Levels/Level1.tscn" id="2_4rvqi"]
 
 [node name="GameStats" type="Control"]
 layout_mode = 3
@@ -8,3 +9,4 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_y7awf")
+levels = Array[PackedScene]([ExtResource("2_4rvqi")])

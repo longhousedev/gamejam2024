@@ -35,7 +35,7 @@ func set_visibility(new_visibility:bool):
 	if(!is_visible):
 		for r in rayCasts:
 			for p in r.previousCasts:
-				if(p!=self):
+				if(p!=self && p is Visible):
 					p.set_visibility(false);
 
 

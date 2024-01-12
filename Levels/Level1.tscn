@@ -49,3 +49,7 @@ rotation = 1.5708
 position = Vector2(169, 341)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_y5dfe")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(235, 322)
+color = Color(0.309804, 0.309804, 0.309804, 1)

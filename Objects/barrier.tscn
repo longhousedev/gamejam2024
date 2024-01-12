@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_085cl"]
 size = Vector2(127, 26)
 
-[node name="Enemy" type="Node2D" node_paths=PackedStringArray("sprite", "body")]
+[node name="Barrier" type="Node2D" node_paths=PackedStringArray("sprite", "body")]
 script = ExtResource("1_uwbvt")
 sprite = NodePath("CharacterBody2D/Sprite2D")
 body = NodePath("CharacterBody2D")

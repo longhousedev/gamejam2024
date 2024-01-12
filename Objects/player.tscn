@@ -1,24 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://diqeaab1akt8r"]
 
 [ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_ubmd4"]
-[ext_resource type="Texture2D" uid="uid://b380uc16lsm3h" path="res://icon.svg" id="2_m881c"]
 [ext_resource type="PackedScene" uid="uid://rx6ate3vnsmx" path="res://Objects/ray_caster.tscn" id="3_4gljd"]
+[ext_resource type="SpriteFrames" uid="uid://b70pj4otudswg" path="res://Objects/playerAnimation.tres" id="3_s5uxe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjv2l"]
-radius = 64.0
+radius = 23.44
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("rayCaster") groups=["player"]]
+motion_mode = 1
 script = ExtResource("1_ubmd4")
 rayCaster = NodePath("RayCaster")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 30)
 shape = SubResource("CircleShape2D_hjv2l")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_m881c")
 
 [node name="RayCaster" parent="." instance=ExtResource("3_4gljd")]
 numRayCasts = 10
 rayCastAngle = 45.0
 rayLength = 5000
 offset = 75
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_s5uxe")
+autoplay = "default"

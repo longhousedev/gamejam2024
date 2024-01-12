@@ -7,8 +7,10 @@ var mouse_enabled = false
 
 var dead = false;
 var gameStats:Stats
+var mirror:Mirror;
+var grabbed:bool = false;
 func _ready():
-	pass;
+	GameManager.player = self;
 func _physics_process(delta):
 	
 	# Get rotation
@@ -21,13 +23,15 @@ func _physics_process(delta):
 		else:
 			var rotate_direction = Input.get_axis("rotate_anticlock", "rotate_clock")
 			rotation += rotate_direction * ROTATION_SPEED * delta
-
+		if Input.is_action_just_pressed("Grab"):
+			grab();
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		velocity = input_direction * SPEED
 	else:
 		velocity = velocity * 0
+	
 	
 	move_and_slide()
 	
@@ -36,10 +40,25 @@ func _physics_process(delta):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().is_in_group("enemy"):
-			if !dead:
-				dead = true
-				print("I hit an enemy!")
-				await get_tree().create_timer(1.0).timeout
-				GameManager.gameStats.player_died();
+		if(collision != null):
+			if collision.get_collider().is_in_group("enemy"):
+				if !dead:
+					dead = true
+					print("I hit an enemy!")
+					await get_tree().create_timer(1.0).timeout
+					GameManager.gameStats.player_died();
 
+func canGrab(newMirror:Mirror):
+	mirror = newMirror
+
+func cannotGrab(newMirror:Mirror):
+	if(newMirror == mirror):
+		mirror == null;
+func grab():
+	if mirror != null:
+		if grabbed:
+			mirror.release();
+			grabbed = false;
+		else:
+			mirror.grab();
+			grabbed = true;

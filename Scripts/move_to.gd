@@ -1,7 +1,7 @@
 class_name enemy_move extends CharacterBody2D
 
 @export var waypoint_list:Array
-@export var player_script: Player_Movement
+@export var player_script:Player_Movement
 var movement_speed: float = 100
 var movement_target_position: Vector2
 
@@ -22,7 +22,7 @@ func is_reached_destination():
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
-
+	player_script = GameManager.player
 	# Now that the navigation map is no longer empty, set the movement target.
 	set_movement_target(movement_target_position)
 

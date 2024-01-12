@@ -7,14 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr1qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awe81"]
-size = Vector2(41, 40)
+size = Vector2(120, 120)
 
-[node name="Mirror" type="Node2D" node_paths=PackedStringArray("rayCasts", "sprite", "light", "body")]
+[node name="Mirror" type="Node2D" node_paths=PackedStringArray("rayCasts", "sprite", "light", "CollisionShape", "body")]
 script = ExtResource("1_a7h8s")
 rayCasts = [NodePath("RayCaster"), NodePath("RayCaster2"), NodePath("RayCaster3")]
-offset = 5
+offset = 10
 sprite = NodePath("Sprite2D")
 light = NodePath("PointLight2D")
+CollisionShape = NodePath("RigidBody2D/CollisionShape2D")
 body = NodePath("RigidBody2D")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -22,6 +23,7 @@ mass = 0.01
 gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
+freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_hr1qq")
@@ -59,3 +61,4 @@ rayLength = 1000
 offset = 5
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_player_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_player_body_exited"]

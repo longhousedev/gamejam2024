@@ -15,7 +15,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [node name="Player" parent="." instance=ExtResource("1_buqj4")]
 position = Vector2(546, 248)
 
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
+[node name="PointLight2D2" type="PointLight2D" parent="Player"]
 rotation = 1.5708
 shadow_enabled = true
 texture = ExtResource("2_cpdq1")

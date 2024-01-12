@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmdfm6yxfepbf"]
+[gd_scene load_steps=14 format=3 uid="uid://bmdfm6yxfepbf"]
 
 [ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
@@ -7,6 +7,12 @@
 [ext_resource type="Script" path="res://Scripts/UI/quit_game.gd" id="4_im24r"]
 [ext_resource type="AudioStream" uid="uid://135scsn5sl55" path="res://Audio/Music/Main Menu Theme.mp3" id="5_8jdrm"]
 [ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
+[ext_resource type="PackedScene" uid="uid://chuf4o3lu4lcj" path="res://Levels/Level1.tscn" id="8_d3lw6"]
+[ext_resource type="PackedScene" uid="uid://tghqiqo7t5pr" path="res://Levels/Level2.tscn" id="9_72qnw"]
+[ext_resource type="PackedScene" uid="uid://c356npe515s6n" path="res://Levels/Level3.tscn" id="10_hxsoe"]
+[ext_resource type="PackedScene" uid="uid://tc1uwt0jegvo" path="res://Levels/Level4.tscn" id="11_fkkx5"]
+[ext_resource type="PackedScene" uid="uid://cwituixngw24u" path="res://Levels/Level5.tscn" id="12_cfrkq"]
+[ext_resource type="PackedScene" uid="uid://cus8cbusv3v38" path="res://Levels/Level6.tscn" id="13_62rq3"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_vj1v7")
@@ -135,6 +141,7 @@ script = ExtResource("5_t08ud")
 
 [node name="GameStats" parent="." node_paths=PackedStringArray("mainMenu") instance=ExtResource("1_iimn1")]
 mainMenu = NodePath("../MainMenu")
+levels = Array[PackedScene]([ExtResource("8_d3lw6"), ExtResource("9_72qnw"), ExtResource("10_hxsoe"), ExtResource("11_fkkx5"), ExtResource("12_cfrkq"), ExtResource("13_62rq3")])
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu/VBoxContainer/PlayButton" method="_on_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/ControlsButton" to="MainMenu/VBoxContainer/ControlsButton" method="_on_pressed"]

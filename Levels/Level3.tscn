@@ -1,3 +1,140 @@
-[gd_scene format=3 uid="uid://c356npe515s6n"]
+[gd_scene load_steps=5 format=3 uid="uid://c356npe515s6n"]
+
+[ext_resource type="PackedScene" uid="uid://c5neqm5dj8ix1" path="res://Objects/wall.tscn" id="1_b5sba"]
+[ext_resource type="PackedScene" uid="uid://b1jpqkwvc2ew7" path="res://Objects/level_end.tscn" id="2_l5gbi"]
+[ext_resource type="PackedScene" uid="uid://br5wikxahhvpa" path="res://Objects/Mirror.tscn" id="3_2nc6h"]
+[ext_resource type="PackedScene" uid="uid://bce7tnr8a25mf" path="res://Objects/barrier.tscn" id="4_ay115"]
 
 [node name="Level3" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="Wall2" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(218, -8)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall3" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(652, -11)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall11" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(1085, 9)
+
+[node name="Wall4" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(619.5, 376)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall5" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(1053.5, 373)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall12" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(1486.5, 393)
+
+[node name="Wall6" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(71, 599)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall7" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(501.5, 599)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall13" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(934.5, 619)
+
+[node name="LevelEnd" parent="." instance=ExtResource("2_l5gbi")]
+position = Vector2(1168, 506)
+scale = Vector2(2, 2)
+
+[node name="Wall8" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(12, 399)
+rotation = 1.5708
+scale = Vector2(0.421703, 0.2)
+
+[node name="Wall9" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(170.5, 199)
+scale = Vector2(0.5, 0.2)
+
+[node name="Wall14" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(603.5, 219)
+
+[node name="Wall10" parent="." instance=ExtResource("1_b5sba")]
+position = Vector2(1155, 201.615)
+rotation = 1.5708
+scale = Vector2(0.358415, 0.2)
+
+[node name="Mirror" parent="." instance=ExtResource("3_2nc6h")]
+position = Vector2(1078, 299)
+rotation = 3.14159
+
+[node name="Barrier3" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(420, 520)
+rotation = -1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier" parent="." instance=ExtResource("4_ay115")]
+position = Vector2(451, 312)
+rotation = 1.5708
+
+[node name="Barrier2" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(805, 117)
+rotation = 1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier4" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(454, 453)
+rotation = 1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier5" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(543, 520)
+rotation = -1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier6" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(577, 453)
+rotation = 1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier7" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(773, 519)
+rotation = -1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier8" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(807, 452)
+rotation = 1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier9" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(331, 363)
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier10" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(188, 362)
+rotation = 3.14159
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier11" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(259, 289)
+rotation = -1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[node name="Barrier12" parent="." node_paths=PackedStringArray("sprite", "body") instance=ExtResource("4_ay115")]
+position = Vector2(255, 413)
+rotation = 1.5708
+sprite = NodePath("../Barrier/CharacterBody2D/Sprite2D")
+body = NodePath("../Barrier/CharacterBody2D")
+
+[editable path="Mirror"]

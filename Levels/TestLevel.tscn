@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://baqrpr0yg6pqr"]
+[gd_scene load_steps=6 format=3 uid="uid://baqrpr0yg6pqr"]
 
 [ext_resource type="PackedScene" uid="uid://diqeaab1akt8r" path="res://Objects/player.tscn" id="1_ckxj4"]
 [ext_resource type="PackedScene" uid="uid://nuyv2pcwdehp" path="res://Objects/enemy.tscn" id="2_4xm8f"]
-[ext_resource type="Texture2D" uid="uid://yirfcoqdo7ts" path="res://Sprites/VisionCone.png" id="2_d0vya"]
 [ext_resource type="PackedScene" uid="uid://bce7tnr8a25mf" path="res://Objects/barrier.tscn" id="4_2yust"]
 [ext_resource type="PackedScene" uid="uid://br5wikxahhvpa" path="res://Objects/Mirror.tscn" id="5_632dl"]
 [ext_resource type="AudioStream" uid="uid://bgscnsmjqcwf4" path="res://Audio/Music/Level Theme.mp3" id="6_4xang"]
@@ -11,11 +10,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_ckxj4")]
 position = Vector2(586, 341)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-rotation = 1.5708
-shadow_enabled = true
-texture = ExtResource("2_d0vya")
 
 [node name="Enemy" parent="." instance=ExtResource("2_4xm8f")]
 position = Vector2(869, 168)

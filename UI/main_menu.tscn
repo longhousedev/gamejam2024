@@ -44,7 +44,7 @@ offset_top = 84.0
 offset_right = 400.0
 offset_bottom = 107.0
 scale = Vector2(3.01926, 3.01926)
-text = "GOOGLY EYES"
+text = "See what exists"
 horizontal_alignment = 1
 
 [node name="ControlScreen" type="Control" parent="."]

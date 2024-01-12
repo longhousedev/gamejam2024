@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmdfm6yxfepbf"]
+[gd_scene load_steps=18 format=3 uid="uid://bmdfm6yxfepbf"]
 
 [ext_resource type="PackedScene" uid="uid://f1amb0kd5qih" path="res://Objects/game_stats.tscn" id="1_iimn1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vj1v7"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/close_controls.gd" id="5_t08ud"]
 [ext_resource type="PackedScene" uid="uid://chuf4o3lu4lcj" path="res://Levels/Level1.tscn" id="8_d3lw6"]
 [ext_resource type="PackedScene" uid="uid://tghqiqo7t5pr" path="res://Levels/Level2.tscn" id="9_72qnw"]
+[ext_resource type="Texture2D" uid="uid://tbtqa2upkeh" path="res://Sprites/Title Logo.png" id="9_a0y5f"]
 [ext_resource type="PackedScene" uid="uid://c356npe515s6n" path="res://Levels/Level3.tscn" id="10_hxsoe"]
 [ext_resource type="PackedScene" uid="uid://tc1uwt0jegvo" path="res://Levels/Level4.tscn" id="11_fkkx5"]
 [ext_resource type="PackedScene" uid="uid://cwituixngw24u" path="res://Levels/Level5.tscn" id="12_cfrkq"]
@@ -50,11 +51,11 @@ texture = ExtResource("4_2h2fs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
-offset_left = 254.0
-offset_top = 284.0
-offset_right = 344.0
-offset_bottom = 385.0
-scale = Vector2(1.75936, 1.75936)
+offset_left = 244.0
+offset_top = 321.0
+offset_right = 334.0
+offset_bottom = 422.0
+scale = Vector2(1.97334, 1.97334)
 
 [node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer" node_paths=PackedStringArray("gameStats")]
 layout_mode = 2
@@ -79,15 +80,10 @@ scale = Vector2(0.435656, 0.435656)
 stream = ExtResource("5_8jdrm")
 autoplay = true
 
-[node name="Label" type="Label" parent="MainMenu"]
-layout_mode = 0
-offset_left = 231.0
-offset_top = 116.0
-offset_right = 352.0
-offset_bottom = 139.0
-scale = Vector2(1.74326, 1.74326)
-text = "See What Exists"
-horizontal_alignment = 1
+[node name="GameTitle" type="Sprite2D" parent="MainMenu"]
+position = Vector2(335, 161)
+scale = Vector2(0.754996, 0.754996)
+texture = ExtResource("9_a0y5f")
 
 [node name="ControlScreen" type="Control" parent="MainMenu"]
 visible = false
